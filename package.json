@@ -9,8 +9,11 @@
     "node": ">=20.x"
   },
   "scripts": {
+    "setup": "node scripts/setup.mjs",
+    "postinstall": "node scripts/setup.mjs",
     "dev": "node ./node_modules/vite/bin/vite.js",
     "api": "node api/index.js",
+    "start": "node api/index.js",
     "build": "node ./node_modules/vite/bin/vite.js build",
     "lint": "eslint .",
     "preview": "vite preview"
