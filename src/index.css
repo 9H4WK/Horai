@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+@font-face {
+  font-family: Avro-Regular;
+  src: url(./assets/fonts/Arvo-Regular.ttf);
+}
+
+@font-face {
+  font-family: Poppins-Regular;
+  src: url(./assets/fonts/Poppins-Regular.ttf);
+}
+
+@font-face {
+  font-family: Poppins-Bold;
+  src: url(./assets/fonts/Poppins-Bold.ttf);
+}
+
+@font-face {
+  font-family: Poppins-SemiBold;
+  src: url(./assets/fonts/Poppins-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: Poppins-Medium;
+  src: url(./assets/fonts/Poppins-Medium.ttf);
+}
+
+@font-face {
+  font-family: Alatsi-Regular;
+  src: url(./assets/fonts/Alatsi-Regular.ttf);
+}
+
+@font-face {
+  font-family: Ponnala-Regular;
+  src: url(./assets/fonts/Ponnala-Regular.ttf);
+}
+
+@theme {
+  --font-avro: 'Avro-Regular', sans-serif;
+  --font-poppins: 'Poppins-Regular', sans-serif;
+  --font-poppins-bold: 'Poppins-Bold', sans-serif;
+  --font-poppins-semibold: 'Poppins-SemiBold', sans-serif;
+  --font-poppins-medium: 'Poppins-Medium', sans-serif;
+  --font-alatsi: 'Alatsi-Regular', sans-serif;
+  --font-ponnala: 'Ponnala-Regular', sans-serif;
+
+  --color-primary-accent: #D3571F;
+  --color-secondary-accent: #FF9768;
+  --color-tritary-accent: #E46E39;
+  --color-primary: #000000
+}
