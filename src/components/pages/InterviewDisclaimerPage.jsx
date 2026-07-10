@@ -61,7 +61,7 @@ const InterviewDisclaimerPage = () => {
           <p className="leading-6">
             This step uses a short <strong>AI-powered assessment</strong> built into the HORAI Labs
             hiring process. Your answers are reviewed together with the information you already
-            shared — such as your profile, experience, and CV — so the hiring team gets a fair,
+            shared - such as your profile, experience, and CV - so the hiring team gets a fair,
             structured summary of how you fit this role. Human recruiters still make the final
             decision.
           </p>
@@ -82,7 +82,7 @@ const InterviewDisclaimerPage = () => {
           <h2 className="mb-2 text-base font-poppins-semibold text-[#1B1B1B]">What to expect</h2>
           <ul className="space-y-2">
             <li>1. A short set of role-related questions with a timer on each.</li>
-            <li>2. Stay on this window — switching away may be treated as a violation.</li>
+            <li>2. Stay on this window - switching away may be treated as a violation.</li>
             <li>3. Pasting and drag-and-drop are disabled.</li>
             <li>4. When you finish, results are prepared for the HORAI Labs hiring team.</li>
             <li className="font-semibold text-red-700">
