@@ -1,4 +1,4 @@
-# HORAI Labs — AI-assisted recruitment portal
+# HORAI Labs : AI-assisted recruitment portal
 
 Web-based candidate selection system for **HORAI Labs** (single-company careers & hiring desk), with profile/CV intake, applications, short assessments, and employer screening reviews.
 
@@ -23,19 +23,19 @@ npm run api
 npm run dev
 ```
 
-- UI: http://localhost:5173  
-- API: http://localhost:5000  
+- UI: http://localhost:5173
+- API: http://localhost:5000
 
 Demo accounts: see [`SEED_CREDENTIALS.md`](./SEED_CREDENTIALS.md).
 
 ## Scripts
 
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Vite frontend |
-| `npm run api` | Express API + seed |
-| `npm run build` | Production frontend build |
-| `npm run preview` | Preview production build |
+| Command           | Description               |
+| ----------------- | ------------------------- |
+| `npm run dev`     | Vite frontend             |
+| `npm run api`     | Express API + seed        |
+| `npm run build`   | Production frontend build |
+| `npm run preview` | Preview production build  |
 
 ## Project layout
 
