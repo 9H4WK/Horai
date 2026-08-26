@@ -127,9 +127,26 @@ export const getAllCompanies = async () => {
 };
 
 // ── Users Management ────────────────────────────────────────────────────────
+const unwrapData = (responseBody) => responseBody?.data ?? responseBody?.result ?? responseBody;
+
 export const getAllUsers = async () => {
   const { data } = await apiClient.get("/api/Admin/GetAllUsers");
   return extractCollection(data);
+};
+
+export const getUserDetails = async (id) => {
+  const { data } = await apiClient.get(`/api/Admin/GetUserDetails/${id}`);
+  return unwrapData(data);
+};
+
+export const updateUser = async (id, payload) => {
+  const { data } = await apiClient.put(`/api/Admin/UpdateUser/${id}`, payload);
+  return data;
+};
+
+export const deleteUser = async (id) => {
+  const { data } = await apiClient.delete(`/api/Admin/DeleteUser/${id}`);
+  return data;
 };
 
 export const lockUnlockUser = async (id) => {
@@ -139,7 +156,7 @@ export const lockUnlockUser = async (id) => {
 
 export const getAdminDashboardStats = async () => {
   const { data } = await apiClient.get("/api/Admin/DashBoard");
-  return data?.data ?? data?.result ?? data;
+  return unwrapData(data);
 };
 
 export const getAllEmployers = async () => {
@@ -160,16 +177,49 @@ export const registerAdmin = async (payload) => {
 // ── Analytics ────────────────────────────────────────────────────────────────
 export const getEmploymentRate = async () => {
   const { data } = await apiClient.get("/api/AnalysisForAdminDashboard/GetEmploymentRate");
-  return data?.data ?? data?.result ?? data;
+  return unwrapData(data);
 };
 
 export const getApplicationsDistribution = async () => {
   const { data } = await apiClient.get("/api/AnalysisForAdminDashboard/GetApplicationsDistribution");
-  return data?.data ?? data?.result ?? data;
+  return extractCollection(data);
+};
+
+export const getApplicationsOverTime = async () => {
+  const { data } = await apiClient.get("/api/AnalysisForAdminDashboard/GetApplicationsOverTime");
+  return extractCollection(data);
+};
+
+export const getUsersGrowth = async () => {
+  const { data } = await apiClient.get("/api/AnalysisForAdminDashboard/GetUsersGrowth");
+  return extractCollection(data);
+};
+
+export const getScreeningFunnel = async () => {
+  const { data } = await apiClient.get("/api/AnalysisForAdminDashboard/GetScreeningFunnel");
+  return extractCollection(data);
+};
+
+export const getJobTypeDistribution = async () => {
+  const { data } = await apiClient.get("/api/AnalysisForAdminDashboard/GetJobTypeDistribution");
+  return extractCollection(data);
+};
+
+export const getTopJobs = async () => {
+  const { data } = await apiClient.get("/api/AnalysisForAdminDashboard/GetTopJobs");
+  return extractCollection(data);
+};
+
+export const getScreeningQuality = async () => {
+  const { data } = await apiClient.get("/api/AnalysisForAdminDashboard/GetScreeningQuality");
+  return unwrapData(data);
 };
 
 export const getTopSkills = async () => {
   const { data } = await apiClient.get("/api/AnalysisForAdminDashboard/GetTopSkills");
-  return data?.data ?? data?.result ?? data;
+  return extractCollection(data).map((item) => ({
+    name: item.skillName ?? item.name ?? item.label ?? item.skill ?? "Skill",
+    count: Number(item.count ?? item.value ?? item.jobsCount ?? 0),
+  }));
 };
 

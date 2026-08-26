@@ -45,6 +45,14 @@ async function initDb() {
     db.run("ALTER TABLE users ADD COLUMN profile_json TEXT");
   } catch {}
 
+  try {
+    db.run("ALTER TABLE users ADD COLUMN is_locked INTEGER DEFAULT 0");
+  } catch {}
+
+  try {
+    db.run("ALTER TABLE users ADD COLUMN last_login_at DATETIME");
+  } catch {}
+
   db.run(`
     CREATE TABLE IF NOT EXISTS companies (
       id INTEGER PRIMARY KEY AUTOINCREMENT,

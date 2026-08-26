@@ -41,10 +41,16 @@ router.post("/Login", async (req, res) => {
     return res.status(400).json({ message: "Invalid email or password." });
   }
 
+  if (user.is_locked) {
+    return res.status(403).json({ message: "This account has been locked by an administrator." });
+  }
+
   const valid = await bcrypt.compare(password, user.password_hash);
   if (!valid) {
     return res.status(400).json({ message: "Invalid email or password." });
   }
+
+  run("UPDATE users SET last_login_at = CURRENT_TIMESTAMP WHERE id = ?", [user.id]);
 
   const token = signToken({
     userId: user.id,
